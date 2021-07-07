@@ -1,0 +1,103 @@
+buildscript {
+    ext {
+        versions = [
+                "coroutines": "1.4.3",
+                "log4j"     : "2.14.0",
+                "javafx"    : "14",
+                "kodein"    : "7.5.0",
+                "tornadofx" : "1.7.20"
+        ]
+        Properties localProps = new Properties()
+        try {
+            localProps.load(project.rootProject.file("local.properties").newDataInputStream())
+        }
+        catch (Exception ignored) {
+        }
+        // признак необходимости собирать полный jar-файл (в полный jar собираются приложения перед публикацией в репо)
+        isPackFullJar = localProps.getProperty("build.packFullJar", "true") == "true"
+    }
+}
+
+plugins {
+    id "java"
+    id "org.jetbrains.kotlin.jvm" version "1.4.31"
+    // плагин для работы javafx сборок. применяем только там где используется
+    id "org.openjfx.javafxplugin" version "0.0.9" apply false
+    // валидация code-style (последние версии вплоть до 2.3.2 не игнорируют папку build, невозможно прописать exclude)
+    id "org.jmailen.kotlinter" version "3.3.0"
+}
+repositories {
+    mavenCentral()
+}
+
+
+subprojects {
+    // валидация code-style
+    apply plugin: "org.jmailen.kotlinter"
+    kotlinter {
+        experimentalRules = false
+    }
+
+    group = "ru.croc.ibelozor"
+
+    version "0.0.1"
+    // говорим идее скачивать javadoc по умолчанию
+    apply plugin: "idea"
+    idea {
+        module {
+            downloadJavadoc = true
+        }
+    }
+
+    apply plugin: "kotlin"
+    // указываем репозиторий и для buildscript, и для зависимостей
+    buildscript.repositories.mavenCentral()
+    repositories.mavenCentral()
+    tasks.withType(Tar) {
+        enabled = false
+    }
+    // параметры kotlin
+    compileKotlin {
+        kotlinOptions {
+            freeCompilerArgs = [
+                    "-Xjsr305=strict"
+            ]
+            jvmTarget = JavaVersion.VERSION_11
+        }
+    }
+    compileTestKotlin {
+        kotlinOptions {
+            freeCompilerArgs = [
+                    "-Xjsr305=strict"
+            ]
+            jvmTarget = JavaVersion.VERSION_11
+        }
+    }
+
+    // используемые у всех модулей зависимости
+    dependencies {
+        // котлин
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+        implementation "org.jetbrains.kotlin:kotlin-reflect"
+        // корутины
+        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:${versions.coroutines}"
+        // логирование
+        implementation "org.apache.logging.log4j:log4j-api:${versions.log4j}"
+        implementation "org.apache.logging.log4j:log4j-core:${versions.log4j}"
+        // библиотека, позволяющая разноцветный вывод лога в windows (в параметрах log4j2.component.properties установили log4j.skipJansi=false)
+        implementation "org.fusesource.jansi:jansi:1.18"
+    }
+
+    // убираем из всех зависимостей slf4j, т.к. используем log4j2
+    configurations.all {
+        exclude group: "org.slf4j", module: "slf4j-log4j12"
+    }
+
+    sourceCompatibility = JavaVersion.VERSION_11
+    // кодировка:
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+    }
+}
+
+jar.enabled = false

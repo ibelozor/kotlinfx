@@ -1,0 +1,15 @@
+// настройки архивации в jar. при подключении скрипта к скрипту сборки проекта включается упаковка в jar всех зависимых
+// сборок (если в настройках не задано обратное). Т.е. на машине разработчика можно создать файлик local.properties,
+// в нём написать build.packFullJar = false, тогда этого не будет (см корневой build.gradle)
+jar {
+    enabled = true
+    exclude 'META-INF/*.RSA', 'META-INF/*.SF','META-INF/*.DSA'
+    manifest {
+        attributes "Multi-Release":true
+    }
+    if (isPackFullJar) {
+        from {
+            configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+        }
+    }
+}

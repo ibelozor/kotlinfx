@@ -1,0 +1,10 @@
+apply plugin: "org.openjfx.javafxplugin"
+
+javafx {
+    version = "${versions.javafx}"
+    modules = ["javafx.controls"]
+}
+
+dependencies {
+    api "no.tornado:tornadofx:${versions.tornadofx}"
+}

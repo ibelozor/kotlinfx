@@ -1,0 +1,21 @@
+apply plugin: "org.openjfx.javafxplugin"
+
+javafx {
+    version = "${versions.javafx}"
+    modules = ["javafx.controls"]
+}
+
+dependencies {
+    implementation project(":fx:common")
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-javafx:${versions.coroutines}"
+    implementation "org.kodein.di:kodein-di:${versions.kodein}"
+    implementation "org.kodein.di:kodein-di-framework-tornadofx-jvm:${versions.kodein}"
+}
+// закомментировал сборку в jar-файл, т.к. kodein зависит от этого проекта и получается,
+// что весь этот jar заливается ещё и в kodein-jar
+//apply from: "../../gradle/jar.gradle"
+jar {
+    manifest {
+        attributes "Main-Class": "ru.croc.ibelozor.samplefx.AppLauncher"
+    }
+}
