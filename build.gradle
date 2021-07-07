@@ -3,7 +3,7 @@ buildscript {
         versions = [
                 "coroutines": "1.4.3",
                 "log4j"     : "2.14.0",
-                "javafx"    : "14",
+                "javafx"    : "16",
                 "kodein"    : "7.5.0",
                 "tornadofx" : "1.7.20"
         ]

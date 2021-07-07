@@ -26,7 +26,10 @@ class AuthViewModel : Controller() {
         // если работа не была запущена - создам работу по получению пользователя
         storageRequestJob = if (storageRequestJob == null) {
             storageIsBusyProperty.set(true)
-            scope.launch { setUser(scope.storageService.getUser()) }.apply {
+            scope.launch {
+                val user = scope.storageService.getUser()
+                setUser(user)
+            }.apply {
                 invokeOnCompletion {
                     if (it is CancellationException) logger.info("Отменили получение пользователя с сервера")
                 }
