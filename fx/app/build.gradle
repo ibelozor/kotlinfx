@@ -2,7 +2,7 @@ apply plugin: "org.openjfx.javafxplugin"
 
 javafx {
     version = "${versions.javafx}"
-    modules = ["javafx.controls"]
+    modules = ["javafx.controls", "javafx.fxml"]
 }
 
 dependencies {
@@ -14,6 +14,6 @@ dependencies {
 apply from: "../../gradle/jar.gradle"
 jar {
     manifest {
-        attributes "Main-Class": "ru.croc.ibelozor.samplefx.AppLauncher"
+        attributes "Main-Class": "ru.croc.ibelozor.kotlinfx.AppLauncher"
     }
 }
