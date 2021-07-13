@@ -1,6 +1,7 @@
 package ru.croc.ibelozor.kotlinfx.app.view
 
 import javafx.beans.property.SimpleBooleanProperty
+import javafx.beans.property.SimpleStringProperty
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -16,6 +17,8 @@ class AuthViewModel : Controller() {
     val storageIsBusyProperty = SimpleBooleanProperty(false)
 
     private var storageRequestJob: Job? = null
+
+    val userNameInput = SimpleStringProperty("")
 
     /**
      * получим пользователя из внешнего сервиса

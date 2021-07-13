@@ -4,7 +4,14 @@ import javafx.scene.input.KeyCode
 import javafx.scene.layout.Priority
 import javafx.scene.layout.VBox
 import ru.croc.ibelozor.kotlinfx.fxutils.AutoFittedImageView
-import tornadofx.*
+import tornadofx.action
+import tornadofx.button
+import tornadofx.get
+import tornadofx.gridpane
+import tornadofx.label
+import tornadofx.objectBinding
+import tornadofx.textfield
+import tornadofx.vgrow
 
 open class AuthView : AbstractRootContentView() {
 
@@ -15,6 +22,7 @@ open class AuthView : AbstractRootContentView() {
             VBox(10.0).apply {
                 label(messages["authView.enterName"])
                 textfield {
+                    textProperty().bindBidirectional(vm.userNameInput)
                     // авторизуем по имени:
                     setOnKeyPressed {
                         if (it.code != KeyCode.ENTER) return@setOnKeyPressed else it.consume()

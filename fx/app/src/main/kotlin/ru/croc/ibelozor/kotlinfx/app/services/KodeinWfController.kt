@@ -40,7 +40,7 @@ class KodeinWfController(di: DI) : WfService() {
         }
         currentProcessInternal.set(null)
         // например, получаем внешние данные
-        delay(1000)
+        delay(500)
         // запуск основного процесса
         MainProcessContext(ctx, MainProcessData(userData, storageService.randomData)).apply {
             currentProcessInternal.set(ContextedRootProcess(RootProcess.Main, this))

@@ -10,12 +10,10 @@ import java.util.ResourceBundle;
 
 public class SimpleJavaFxApp extends Application {
 
-    private static final String fxmlResPath = "/javafx/sample.fxml";
-
     @Override
     public void start(Stage primaryStage) throws Exception{
         ResourceBundle bundle = ResourceBundle.getBundle("javafx/strings");
-        Parent root = FXMLLoader.load(getClass().getResource(fxmlResPath), bundle);
+        Parent root = FXMLLoader.load(getClass().getResource("/javafx/sample.fxml"), bundle);
         primaryStage.setTitle("Hello World");
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
