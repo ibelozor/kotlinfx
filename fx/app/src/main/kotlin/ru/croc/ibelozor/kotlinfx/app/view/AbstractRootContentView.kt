@@ -1,5 +1,8 @@
 package ru.croc.ibelozor.kotlinfx.app.view
 
+import java.time.Duration
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 import javafx.beans.property.SimpleStringProperty
 import javafx.geometry.HPos
 import javafx.scene.control.Label
@@ -8,12 +11,19 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import ru.croc.ibelozor.kotlinfx.app.style.CustomStyles
 import ru.croc.ibelozor.kotlinfx.context.FxScopedContext
-import ru.croc.ibelozor.kotlinfx.fxutils.*
+import ru.croc.ibelozor.kotlinfx.fxutils.CommonStyles
+import ru.croc.ibelozor.kotlinfx.fxutils.SimpleNodeProperty
+import ru.croc.ibelozor.kotlinfx.fxutils.bindSingleChild
+import ru.croc.ibelozor.kotlinfx.fxutils.columnRowIndex
+import ru.croc.ibelozor.kotlinfx.fxutils.customGridPane
 import ru.croc.ibelozor.kotlinfx.model.UserData
-import tornadofx.*
-import java.time.Duration
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
+import tornadofx.Fragment
+import tornadofx.addClass
+import tornadofx.borderpane
+import tornadofx.center
+import tornadofx.get
+import tornadofx.gridpaneConstraints
+import tornadofx.label
 
 /**
  * Абстрактный класс для отображения информативной части приложения.

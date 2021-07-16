@@ -38,6 +38,11 @@ open class AuthView : AbstractRootContentView() {
                     )
                     action { vm.getOrCancelUserFromStorage() }
                 }
+                button("другая вью") {
+                    action {
+                        replaceWith(find<AuthView2>())
+                    }
+                }
                 gridpane {
                     vgrow = Priority.ALWAYS
                     add(

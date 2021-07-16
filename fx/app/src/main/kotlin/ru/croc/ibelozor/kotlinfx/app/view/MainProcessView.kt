@@ -4,7 +4,13 @@ import ru.croc.ibelozor.kotlinfx.app.context.MainProcessContext
 import ru.croc.ibelozor.kotlinfx.fxutils.CommonStyles
 import ru.croc.ibelozor.kotlinfx.fxutils.columnRowIndex
 import ru.croc.ibelozor.kotlinfx.fxutils.customGridPane
-import tornadofx.*
+import tornadofx.action
+import tornadofx.addClass
+import tornadofx.button
+import tornadofx.checkbox
+import tornadofx.get
+import tornadofx.label
+import tornadofx.useMaxWidth
 
 class MainProcessView : AbstractRootContentView() {
 

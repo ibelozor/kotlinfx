@@ -2,7 +2,13 @@ package ru.croc.ibelozor.kotlinfx.fxutils
 
 import javafx.scene.text.FontWeight
 import javafx.scene.text.TextAlignment
-import tornadofx.*
+import tornadofx.Stylesheet
+import tornadofx.box
+import tornadofx.c
+import tornadofx.cssclass
+import tornadofx.em
+import tornadofx.mixin
+import tornadofx.px
 
 class CommonStyles : Stylesheet() {
     companion object {

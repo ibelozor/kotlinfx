@@ -1,6 +1,6 @@
 package ru.croc.ibelozor.kotlinfx.model
 
-import ru.croc.medkiosk.utils.SimpleObservableInScope
+import ru.croc.ibelozor.kotlinfx.utils.SimpleObservableInScope
 
 /**
  * данные основного процесса

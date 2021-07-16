@@ -1,4 +1,4 @@
-package ru.croc.medkiosk.utils
+package ru.croc.ibelozor.kotlinfx.utils
 
 import kotlinx.coroutines.CoroutineScope
 

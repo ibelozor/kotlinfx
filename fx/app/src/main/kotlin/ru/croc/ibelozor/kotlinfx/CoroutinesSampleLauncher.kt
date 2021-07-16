@@ -4,6 +4,9 @@
 
 package ru.croc.ibelozor.kotlinfx
 
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Random
 import javafx.application.Application
 import javafx.scene.Node
 import javafx.scene.Scene
@@ -14,11 +17,13 @@ import javafx.scene.paint.Color
 import javafx.scene.shape.Circle
 import javafx.scene.shape.Rectangle
 import javafx.stage.Stage
-import kotlinx.coroutines.*
-import kotlinx.coroutines.javafx.awaitPulse
-import java.text.SimpleDateFormat
-import java.util.*
 import kotlin.coroutines.CoroutineContext
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.javafx.awaitPulse
+import kotlinx.coroutines.launch
 
 fun main(args: Array<String>) {
     Application.launch(CoroutinesSample::class.java, *args)

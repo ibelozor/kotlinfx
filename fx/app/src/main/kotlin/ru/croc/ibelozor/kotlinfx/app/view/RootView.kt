@@ -7,7 +7,11 @@ import ru.croc.ibelozor.kotlinfx.Core
 import ru.croc.ibelozor.kotlinfx.fxutils.SimpleNodeProperty
 import ru.croc.ibelozor.kotlinfx.fxutils.bindSingleChild
 import ru.croc.ibelozor.kotlinfx.fxutils.customGridPane
-import tornadofx.*
+import tornadofx.FX
+import tornadofx.View
+import tornadofx.get
+import tornadofx.objectBinding
+import tornadofx.onChange
 
 /**
  * Корневое View - содержит контейнер для отображения текущего процесса ([BorderPane#centerProperty])

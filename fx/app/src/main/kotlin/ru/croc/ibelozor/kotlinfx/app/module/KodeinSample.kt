@@ -1,6 +1,13 @@
 package ru.croc.ibelozor.kotlinfx.app.module
 
-import org.kodein.di.*
+import org.kodein.di.DI
+import org.kodein.di.bind
+import org.kodein.di.factory
+import org.kodein.di.instance
+import org.kodein.di.multiton
+import org.kodein.di.on
+import org.kodein.di.provider
+import org.kodein.di.singleton
 import ru.croc.ibelozor.kotlinfx.Core
 import ru.croc.ibelozor.kotlinfx.RootProcess
 import ru.croc.ibelozor.kotlinfx.app.services.KodeinStorageService

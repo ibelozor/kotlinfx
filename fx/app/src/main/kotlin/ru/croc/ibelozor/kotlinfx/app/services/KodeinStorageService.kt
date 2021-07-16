@@ -1,15 +1,15 @@
 package ru.croc.ibelozor.kotlinfx.app.services
 
+import java.util.concurrent.Executors
+import java.util.concurrent.TimeUnit
+import kotlin.random.Random
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.withContext
 import org.apache.logging.log4j.LogManager
 import ru.croc.ibelozor.kotlinfx.model.UserData
 import ru.croc.ibelozor.kotlinfx.service.StorageService
-import ru.croc.medkiosk.utils.SimpleObservableInScope
-import java.util.concurrent.Executors
-import java.util.concurrent.TimeUnit
-import kotlin.random.Random
+import ru.croc.ibelozor.kotlinfx.utils.SimpleObservableInScope
 
 class KodeinStorageService(private val params: StorageParams) : StorageService {
 

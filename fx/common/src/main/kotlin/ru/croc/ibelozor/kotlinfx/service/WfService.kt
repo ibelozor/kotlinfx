@@ -6,8 +6,8 @@ import org.apache.logging.log4j.LogManager
 import ru.croc.ibelozor.kotlinfx.context.Context
 import ru.croc.ibelozor.kotlinfx.context.ContextedRootProcess
 import ru.croc.ibelozor.kotlinfx.context.ProcessContext
-import ru.croc.medkiosk.utils.ObservableInScope
-import ru.croc.medkiosk.utils.SimpleObservableInScope
+import ru.croc.ibelozor.kotlinfx.utils.ObservableInScope
+import ru.croc.ibelozor.kotlinfx.utils.SimpleObservableInScope
 
 /**
  * сервис смены состояний приложения

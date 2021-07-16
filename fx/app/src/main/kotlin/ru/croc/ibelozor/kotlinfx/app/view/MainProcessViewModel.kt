@@ -1,5 +1,8 @@
 package ru.croc.ibelozor.kotlinfx.app.view
 
+import java.util.Locale
+import java.util.concurrent.ScheduledExecutorService
+import java.util.concurrent.TimeUnit
 import javafx.beans.property.SimpleStringProperty
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
@@ -13,9 +16,6 @@ import ru.croc.ibelozor.kotlinfx.app.module.KodeinSample
 import ru.croc.ibelozor.kotlinfx.app.services.KodeinStorageService
 import tornadofx.Controller
 import tornadofx.get
-import java.util.*
-import java.util.concurrent.ScheduledExecutorService
-import java.util.concurrent.TimeUnit
 
 class MainProcessViewModel : Controller() {
 

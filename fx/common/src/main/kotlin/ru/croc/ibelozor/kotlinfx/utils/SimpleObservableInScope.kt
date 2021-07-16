@@ -1,7 +1,11 @@
-package ru.croc.medkiosk.utils
+package ru.croc.ibelozor.kotlinfx.utils
 
-import kotlinx.coroutines.*
 import java.util.concurrent.ConcurrentHashMap
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.CoroutineStart
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.isActive
+import kotlinx.coroutines.launch
 
 /**
  * Observable-класс, к значению которого можно биндить свойства. В основном, нужна для биндинга SimpleProperty к объектам,
